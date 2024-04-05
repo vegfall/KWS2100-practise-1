@@ -11,6 +11,7 @@ import { map, MapContext } from "../map/mapContext";
 import { Layer } from "ol/layer";
 import TileLayer from "ol/layer/Tile";
 import { OSM } from "ol/source";
+import VehicleLayerCheckbox from "../vehicle/vehicleLayerCheckbox";
 
 export default function Application() {
   const mapRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -35,7 +36,9 @@ export default function Application() {
 
   return (
     <MapContext.Provider value={{ map, setSecondaryLayers }}>
-      <nav></nav>
+      <nav>
+        <VehicleLayerCheckbox />
+      </nav>
       <main ref={mapRef}></main>
     </MapContext.Provider>
   );
